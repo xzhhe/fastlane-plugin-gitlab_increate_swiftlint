@@ -20,7 +20,62 @@ Incremental Code Check using swiftlint for swift language files on gitlab platfo
 
 Check out the [example `Fastfile`](fastlane/Fastfile) to see how to use this plugin. Try it by cloning the repo, running `fastlane install_plugins` and `bundle exec fastlane test`.
 
-**Note to author:** Please set up a sample project to make it easy for users to explore what your plugin does. Provide everything that is necessary to try out the plugin in this project (including a sample Xcode/Android project if necessary)
+```ruby
+gitlab_increate_swiftlint(
+  gitlab_host: 'https://xxx.com/api/v4',
+  gitlab_token: 'xxxx',
+  projectid: '16456',
+  mrid: '33',
+  lint_dir: '/Users/xiongzenghui/Desktop/ZHUDID',
+  swiftlint_result_json: '/Users/xiongzenghui/Desktop/result.json',
+  config_file: '/Users/xiongzenghui/Desktop/.swiftlint.yml'
+)
+
+pp Actions.lane_context[SharedValues::GITLAB_INCREATE_SWIFTLINT_RESULT_JSON]
+```
+
+得到如下的 json 数据
+
+```json
+[
+  {
+    "character": 13,
+    "file": "/Users/xxx/ci-jenkins/workspace/xxx-iOS-module-xiongzenghui/ZHUDID/ZHUDID/Classes/Demo.swift",
+    "line": 18,
+    "reason": "Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.",
+    "rule_id": "colon",
+    "severity": "Warning",
+    "type": "Colon"
+  },
+  {
+    "character": 28,
+    "file": "/Users/xxx/ci-jenkins/workspace/xxx-iOS-module-xiongzenghui/ZHUDID/ZHUDID/Classes/Demo.swift",
+    "line": 28,
+    "reason": "Force casts should be avoided.",
+    "rule_id": "force_cast",
+    "severity": "Error",
+    "type": "Force Cast"
+  },
+  {
+    "character": 13,
+    "file": "/Users/xxx/ci-jenkins/workspace/xxx-iOS-module-xiongzenghui/ZHUDID/ZHUDID/Classes/Haha.swift",
+    "line": 18,
+    "reason": "Colons should be next to the identifier when specifying a type and next to the key in dictionary literals.",
+    "rule_id": "colon",
+    "severity": "Warning",
+    "type": "Colon"
+  },
+  {
+    "character": 28,
+    "file": "/Users/xxx/ci-jenkins/workspace/xxx-iOS-module-xiongzenghui/ZHUDID/ZHUDID/Classes/Haha.swift",
+    "line": 28,
+    "reason": "Force casts should be avoided.",
+    "rule_id": "force_cast",
+    "severity": "Error",
+    "type": "Force Cast"
+  }
+]
+```
 
 ## Run tests for this plugin
 

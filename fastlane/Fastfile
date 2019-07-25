@@ -2,13 +2,13 @@ fastlane_require 'pp'
 
 lane :test do
   gitlab_increate_swiftlint(
-    gitlab_host: 'https://xxx.com/api/v4',
+    gitlab_host: 'https://git.in.xxxx.com/api/v4',
     gitlab_token: 'xxxx',
     projectid: '16456',
     mrid: '33',
     lint_dir: '/Users/xiongzenghui/Desktop/ZHUDID',
-    swiftlint_result_json: '/Users/xiongzenghui/Desktop/result.json',
-    config_file: '/Users/xiongzenghui/Desktop/.swiftlint.yml'
+    swiftlint_result_json: '/Users/xiongzenghui/Desktop/result.json'
+    # config_file: '/Users/xiongzenghui/Desktop/.swiftlint.yml'
   )
 
   pp Actions.lane_context[SharedValues::GITLAB_INCREATE_SWIFTLINT_RESULT_JSON]
