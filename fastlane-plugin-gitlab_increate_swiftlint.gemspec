@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.email         = 'zxcvb1234001@163.com'
 
   spec.summary       = 'Incremental Code Check using swiftlint for swift language files on gitlab platform !'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-gitlab_increate_swiftlint"
-  spec.license       = "MIT"
+  spec.homepage      = 'https://github.com/xzhhe/fastlane-plugin-gitlab_increate_swiftlint'
+  spec.license       = 'MIT'
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
